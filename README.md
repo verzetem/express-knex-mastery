@@ -109,3 +109,51 @@ And
 * **I encourage you to make a cheat sheet/cheat sheets as you go along so you have a reference document for the future**
 
 ## HAVE FUN!!!
+
+## Stretch Goals
+
+* Make your route handler functions named functions (rather than inline anonymous) and call them by name as the second argument to your routes, ex.
+
+```js
+router.get('/', getAllCakes)
+
+function getAllCakes(req, res) {
+  res.json({ cakes: cakes })
+}
+```
+
+* Extract your route handler functions into their own file, export them, and import/require them in your router file so they can be used, ex.
+
+cakeQueries.js
+```js
+function getAllCakes(req, res) {
+  res.json({ cakes: cakes })
+}
+
+module.exports = {
+  getAllCakes
+}
+```
+cakeRoutes.js
+```js
+const cakeQueries = require('../queries/cakeQueries')
+
+router.get('/', cakeQueries.getAllCakes)
+```
+
+* Write a React front-end that hits your API and:
+  - Renders all of the cake data in some way
+    * Cake name
+    * Cake image
+    * Cake description
+  - Renders all of the student data in some way
+    * Student name
+    * Student cohort
+  - Has a form that allows a user to:
+    * POST new cakes
+    * DELETE cakes
+    * Edit (PUT) cakes
+  - Has a form that allows a user to:
+    * POST new students
+    * DELETE students
+    * Edit (PUT) students
