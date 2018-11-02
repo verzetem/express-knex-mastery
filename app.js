@@ -4,6 +4,7 @@ let port = process.env.PORT || 3030
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const beerPath = require('./routes/beers')
+const beerPeoplePath = require('./routes/beerPeople')
 
 app.use(bodyParser.json())
 
@@ -17,6 +18,7 @@ app.get('/', (req, res) => {
 })
 
 app.use('/beers', beerPath)
+app.use('/beerPeople', beerPeoplePath)
 
 
 
