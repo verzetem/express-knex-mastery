@@ -8,10 +8,14 @@ router.get('/', (req, res) => {
 		})
 })
 
-router.get('/:id', (req, res) => {
+router.get('/:id', (req, res, next) => {
 	const id = req.params.id
 	knex('people').where('id', id).then(person => {
+        if (!person.length) {
+            next()
+        } else {
 		res.json({ person: person[0] })
+    }
 	})
 })
 
