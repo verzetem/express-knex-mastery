@@ -3,6 +3,7 @@ const app = express()
 let port = process.env.PORT || 3030
 const cors = require('cors')
 const bodyParser = require('body-parser')
+const beerPath = require('./routes/beers')
 
 app.use(bodyParser.json())
 
@@ -10,14 +11,12 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cors())
 
 
+
 app.get('/', (req, res) => {
 	res.send('🐻🐻🐻🐻🐻🐻🐻')
 })
 
-
-
-
-
+app.use('/beers', beerPath)
 
 
 
