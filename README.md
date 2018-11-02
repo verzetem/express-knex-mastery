@@ -61,30 +61,30 @@ Today you will be working together with someone else in your cohort to produce a
 * Make your route handler functions named functions (rather than inline anonymous) and call them by name as the second argument to your routes, ex.
 
 ```js
-router.get('/', getAllCakes)
+router.get('/', getAllBeers)
 
-function getAllCakes(req, res) {
-  res.json({ cakes: cakes })
+function getAllBeers(req, res) {
+  res.json({ beers: beers })
 }
 ```
 
 * Extract your route handler functions into their own file, export them, and import/require them in your router file so they can be used, ex.
 
-cakeQueries.js
+beerQueries.js
 ```js
-function getAllCakes(req, res) {
-  res.json({ cakes: cakes })
+function getAllBeers(req, res) {
+  res.json({ beers: beers })
 }
 
 module.exports = {
-  getAllCakes
+  getAllBeers
 }
 ```
-cakeRoutes.js
+beerRoutes.js
 ```js
-const cakeQueries = require('../queries/cakeQueries')
+const beerQueries = require('../queries/beerQueries')
 
-router.get('/', cakeQueries.getAllCakes)
+router.get('/', beerQueries.getAllBeers)
 ```
 
 * Write a React front-end that hits your API and:
