@@ -4,12 +4,12 @@ module.exports = {
 
   development: {
     client: 'pg',
-    connection: 'postgres://localhost/beerPeople'
+    connection: 'postgres://localhost/beer_people_db'
   },
 
   production: {
     client: 'pg',
-    connection: process.env.DATABASE_URL + '?ssl=true'  
+    connection: process.env.DATABASE_URL + '?ssl=true'
   }
 
 };
